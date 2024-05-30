@@ -1,0 +1,42 @@
+a {
+  text-decoration: none;
+}
+
+footer {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 40px 20px 40px;
+}
+
+.madeByDavid {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+  padding: 0px 8px 0px 0px;
+  border-radius: 8px;
+}
+
+.madeByDavid:hover {
+  transform: scale(1.02);
+}
+
+#davidPic {
+  height: 24px;
+  margin: 0;
+}
+
+#davidText {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: rgb(0, 0, 0);
+}
+
+#heartIcon {
+  height: 14px;
+  padding: 0px 4px 0px 4px;
+}
