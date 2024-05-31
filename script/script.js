@@ -1,11 +1,11 @@
-let limit = 6;
+let limit = 25;
 let offset = 0;
 let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 let pokemons = [];
 
 
 async function init() {
-  console.log(pokemons);
+//   console.log(pokemons);
   await loadPokemons();
   await loadPokemonDetails();
   renderPokemons();
@@ -49,6 +49,12 @@ async function renderPokemons() {
 
     content.innerHTML += generateRenderPokemonsHTML(pokemon, pokemonName, typesHTML, bgColor);
   });
+  content.innerHTML += `<div class="loadMoreCard" onclick="loadMorePokemons()"><button id="loadMoreBtn">Load More</button></div`;
+}
+
+
+function loadMorePokemons() {
+
 }
 
 
