@@ -74,6 +74,7 @@ function openOverlay(index) {
   let overlay = document.getElementById('overlay');
   overlay.innerHTML = generateOpenOverlayHTML(pokemons[index], index);
   overlay.style.display = "block";
+  document.body.classList.add('modalOpen');
 }
 
 
@@ -85,12 +86,6 @@ function left(index) {
 function right(index) {
   openOverlay((index + 1 + limit) % limit);
 }
-
-
-function closeOverlay() {
-  overlay.style.display = "none";
-}
-
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

@@ -22,11 +22,8 @@ function generateOpenOverlayHTML(pokemon, index) {
     <div class="overlayPokemonCardContainer ${bgColor}">
         <div class="${pokemon.details.types[0].type['name']}">${pokemonName}</div>
         <img src="${pokemon.details.sprites.other['official-artwork'].front_default}">
-        <div id="buttonContainer">
-        <p id="leftOverlay" onclick="left(${index})">left</p>
-        <p id="closeOverlay" onclick="closeOverlay(${index})">close</p>
-        <p id="rightOverlay" onclick="right(${index})">right</p>
-        </div>
     </div>
+        <p id="leftOverlay" onclick="left(${index})"><img src="img/arrowLeftWhite.png"></p>
+        <p id="rightOverlay" onclick="right(${index})"><img src="img/arrowRightWhite.png"></p>
     `;
   }
