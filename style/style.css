@@ -133,16 +133,24 @@ main{
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 50px;
-  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
   transform: translate(-50%,-50%);
 }
 
+.overlayImgBox {
+  background-image: url("/img/bgc.png");
+  background-size: cover;
+  height: 270px;
+  border: 6px ridge rgb(215,217,216);
+  display: flex;
+  align-items: center;justify-content: center;
+}
 
 #overlay img {
   height: auto;
-  width: 120px;align-items: center;
-  align-self: center;
+  width: 260px;
 }
 
 #leftOverlay {
@@ -168,3 +176,4 @@ main{
   height: 100vh;
   overflow-y: hidden;
 }
+

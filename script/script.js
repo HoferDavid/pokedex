@@ -49,11 +49,9 @@ async function renderPokemons() {
 
   pokemons.forEach((pokemon, index) => {
     if (pokemon.details) {
-      const pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
       let typesHTML = pokemon.details.types.map(typeInfo => `<div>${typeInfo.type.name}</div>`).join('');
-      let bgColor = pokemon.details.types[0].type['name'];
   
-      content.innerHTML += generateRenderPokemonsHTML(pokemon, index, pokemonName, typesHTML, bgColor);
+      content.innerHTML += generateRenderPokemonsHTML(pokemon, index, typesHTML);
     }
     });
     content.innerHTML += `<div class="loadMoreCard" onclick="loadMorePokemons()"><button id="loadMoreBtn">Load More</button></div`;
@@ -72,7 +70,9 @@ async function loadMorePokemons() {
 
 function openOverlay(index) {
   let overlay = document.getElementById('overlay');
+
   overlay.innerHTML = generateOpenOverlayHTML(pokemons[index], index);
+
   overlay.style.display = "block";
   document.body.classList.add('modalOpen');
 }
@@ -87,9 +87,11 @@ function right(index) {
   openOverlay((index + 1 + limit) % limit);
 }
 
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == overlay) {
     overlay.style.display = "none";
+    document.body.classList.remove('modalOpen');
   }
 }
