@@ -32,6 +32,10 @@
   <body onload="init()">
     <header id="atf">
       <div>Pokedex</div>
+      <div class="searchContainer">
+        <img onclick="inProgress()" id="searchIcon" src="img/searchBlack.png" />
+        <input id="searchField" type="text" placeholder="Search Pokemon..." maxlength="50"/>
+      </div>
     </header>
 
     <main>
@@ -50,6 +54,10 @@
           </p>
         </div>
       </a>
+      <div class="privacyContainer">
+        <a class="footerPrivacy" href="imprint.html">Imprint</a>
+        <a class="footerPrivacy" href="privacy.html">Privacy</a>
+      </div>
     </footer>
   </body>
 </html>

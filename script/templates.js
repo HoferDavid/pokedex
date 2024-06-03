@@ -5,8 +5,8 @@ function generateRenderPokemonsHTML(pokemon, index, typesHTML) {
 
   return /*html*/ `
     <div onclick="openOverlay(${index})" class="pokemonCardContainer ${bgColor}">
-        <div>#${pokemon.details.id}</div>
-        <div class="${pokemon.details.types[0].type["name"]}">${pokemonName}</div>
+        <div class="${pokemon.details.types[0].type["name"]} pokemonCardName">${pokemonName}</div>
+        <div class="pokemonCardId">#${pokemon.details.id.toString().padStart(3, '0')}</div>
         <div class="pokemonCardImageContainer">
             <img class="pokemonCardImage" src='${pokemon.details.sprites.other.showdown.front_default}'>
         </div>
@@ -39,7 +39,7 @@ function generateOpenOverlayHTML(pokemon, index) {
         <div class="overlayImgBox">
             <img src="${
               pokemon.details.sprites.other["official-artwork"].front_default}">
-            <div id="imgStats">NO. ${pokemon.details.id} Pokemon HT: ${feet}'${inches < 10 ? "0" : ""}${inches}" WT: ${roundedWeight} lbs.</div>
+            <div id="imgStats">NO. ${pokemon.details.id.toString().padStart(3, '0')} Pokemon HT: ${feet}'${inches < 10 ? "0" : ""}${inches}" WT: ${roundedWeight} lbs.</div>
         </div>
 
         <div>

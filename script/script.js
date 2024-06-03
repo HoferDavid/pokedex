@@ -49,7 +49,7 @@ async function renderPokemons() {
 
   pokemons.forEach((pokemon, index) => {
     if (pokemon.details) {
-      let typesHTML = pokemon.details.types.map(typeInfo => `<div>${typeInfo.type.name}</div>`).join('');
+      let typesHTML = pokemon.details.types.map(typeInfo => `<div class="pokemonCardTypesSingle">${typeInfo.type.name}</div>`).join('');
   
       content.innerHTML += generateRenderPokemonsHTML(pokemon, index, typesHTML);
     }

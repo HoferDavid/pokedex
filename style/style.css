@@ -10,11 +10,42 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  font-family: "Roboto";
+  font-family: "Roboto" !important;
+}
+
+input:focus {
+  outline: none;
 }
 
 main{
   padding: 40px 20px;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f0f2f3;
+  position: relative;
+  border-radius: 8px;
+  width: 200px;
+  height: 24px;
+}
+
+#searchField {
+  border: 0;
+  height: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #f0f2f3;
+  width: 72%;
+  font-size: 12px;
+}
+
+#searchIcon {
+  cursor: pointer;
+  height: 16px;
+  padding-left: 8px;
 }
 
 #content {
@@ -50,9 +81,12 @@ main{
   transform: scale(1.02);
 }
 
-.pokemonCardHeader {
-  display: flex;
-  justify-content: space-between;
+.pokemonCardName {
+  font-size: 24px;
+}
+
+.pokemonCardId {
+  font-size: 12px;
 }
 
 .pokemonCardImageContainer {
@@ -71,7 +105,18 @@ main{
 .pokemonCardTypes {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
+}
+
+.pokemonCardTypesSingle {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0px;
+  border-radius: 8px;
+  border-color: white;
+  border: 3px solid #ffffff;
 }
 
 .loadMoreCard {
