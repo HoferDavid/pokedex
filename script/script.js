@@ -103,7 +103,8 @@ function searchNames() {
   if (input.length > 2) {
     const filteredPokemons = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(input));
     renderPokemons(filteredPokemons);
-    input.innerHTML = '';
+  } else {
+    renderPokemons();
   }
 }
 

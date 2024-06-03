@@ -7,12 +7,13 @@ p {
 }
 
 footer {
-  width: 100%;
+  width: 600px;
   height: 120px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 20px 40px 20px 40px;
+  gap: 64px;
+  padding: 20px;
 }
 
 .madeByDavid {
