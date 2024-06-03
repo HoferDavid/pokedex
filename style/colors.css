@@ -3,11 +3,11 @@
 }
 
 .fire {
-    background-color: rgb(226, 133, 68);
+    background-color: rgb(191, 64, 58);
 }
 
 .water {
-    background-color: rgb(76, 121, 188);
+    background-color: rgb(85, 154, 211);
 }
 
 .electric {
@@ -15,7 +15,7 @@
 }
 
 .grass {
-    background-color: rgb(92, 158, 58);
+    background-color: rgb(84, 169, 58);
 }
 
 .ice {

@@ -137,6 +137,21 @@ main{
   font-weight: bold;
   color: rgb(0, 0, 0);
   transform: translate(-50%,-50%);
+  background: url("/img/texturedpaper.png");
+}
+
+.overlayCardHeader{
+  display: flex;
+  justify-content: space-between;
+}
+
+.overlayCardHeaderRight {
+  display: flex;
+  align-items: first baseline;
+}
+
+.overlayCardHeaderHp {
+  font-size: 12px;
 }
 
 .overlayImgBox {
@@ -193,5 +208,39 @@ main{
 .modalOpen {
   height: 100vh;
   overflow-y: hidden;
+}
+
+.overlayCardStatsHeader {
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+.overlayCardBarHeader {
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.progress {
+  border: 4px ridge rgb(255, 255, 255);
+}
+
+.progress-bar {
+  font-size: 8px;
+}
+
+.overlayCardAbilitiesBtnContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.overlayCardAbilitiesBtn {
+  background-color: aliceblue;
+  height: 32px;
+  width: 50%;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px ridge rgb(255, 255, 255);
 }
 
