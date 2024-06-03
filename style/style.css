@@ -144,13 +144,31 @@ main{
   background-size: cover;
   height: 270px;
   border: 6px ridge rgb(215,217,216);
+  border-radius: 0 0 12px 12px;
   display: flex;
-  align-items: center;justify-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
 }
 
 #overlay img {
   height: auto;
-  width: 260px;
+  width: 200px;
+}
+
+#imgStats {
+  height: 20px;
+  width: 103%;
+  border: 6px ridge rgb(215,217,216);
+  border-radius: 0 0 12px 12px;
+  font-size: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -6px;
+  background-color: rgb(223, 223, 226);
 }
 
 #leftOverlay {
