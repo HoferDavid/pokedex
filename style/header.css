@@ -1,7 +1,39 @@
 header {
-    height: 120px;
-    color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  padding-top: 20px;
+}
+
+.headerLogo {
+  height: 80px;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f0f2f3;
+  position: relative;
+  border-radius: 8px;
+  width: 200px;
+  height: 24px;
+}
+
+#inputField {
+  border: 0;
+  height: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #f0f2f3;
+  width: 72%;
+  font-size: 12px;
+}
+
+#searchIcon {
+  cursor: pointer;
+  height: 16px;
+  padding-left: 8px;
 }

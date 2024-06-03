@@ -31,10 +31,12 @@
 
   <body onload="init()">
     <header id="atf">
-      <div>Pokedex</div>
+      <div>
+        <img class="headerLogo" src="img/pokedex.png" alt="">
+      </div>
       <div class="searchContainer">
         <img onclick="inProgress()" id="searchIcon" src="img/searchBlack.png" />
-        <input id="searchField" type="text" placeholder="Search Pokemon..." maxlength="50"/>
+        <input id="inputField" onkeyup="searchNames()" type="text" placeholder="Search Pokemon..." maxlength="20"/>
       </div>
     </header>
 

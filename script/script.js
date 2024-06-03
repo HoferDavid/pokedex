@@ -43,11 +43,11 @@ async function loadPokemonDetails() {
 }
 
 
-async function renderPokemons() {
+async function renderPokemons(filteredPokemons = pokemons) {
   const content = document.getElementById("content");
   content.innerHTML = "";
 
-  pokemons.forEach((pokemon, index) => {
+  filteredPokemons.forEach((pokemon, index) => {
     if (pokemon.details) {
       let typesHTML = pokemon.details.types.map(typeInfo => `<div class="pokemonCardTypesSingle">${typeInfo.type.name}</div>`).join('');
   
@@ -95,3 +95,15 @@ window.onclick = function(event) {
     document.body.classList.remove('modalOpen');
   }
 }
+
+
+function searchNames() {
+  const input = document.getElementById("inputField").value.toLowerCase();
+  
+  if (input.length > 2) {
+    const filteredPokemons = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(input));
+    renderPokemons(filteredPokemons);
+    input.innerHTML = '';
+  }
+}
+
