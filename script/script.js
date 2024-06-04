@@ -69,6 +69,7 @@ async function loadMorePokemons() {
   console.log(pokemons);
 }
 
+
 function disableLoadMoreButton() {
   const loadMoreBtn = document.getElementById('loadMoreBtn');
   if (loadMoreBtn) {
@@ -76,6 +77,7 @@ function disableLoadMoreButton() {
     loadMoreBtn.innerText = 'Loading...';
   }
 }
+
 
 function enableLoadMoreButton() {
   const loadMoreBtn = document.getElementById('loadMoreBtn');
@@ -93,16 +95,18 @@ function openOverlay(index) {
 
   overlay.style.display = "block";
   document.body.classList.add('modalOpen');
+
+  updateProgressBar()
 }
 
 
 function left(index) {
-  openOverlay((index - 1 + limit) % limit);
+  openOverlay((index - 1 + pokemons.length) % pokemons.length);
 }
 
 
 function right(index) {
-  openOverlay((index + 1 + limit) % limit);
+  openOverlay((index + 1) % pokemons.length);
 }
 
 
@@ -125,4 +129,3 @@ function searchNames() {
     renderPokemons();
   }
 }
-
