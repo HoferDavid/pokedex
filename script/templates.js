@@ -80,11 +80,9 @@ function generateOpenOverlayHTML(pokemon, index) {
         </div>
     </div>
 
-    <div>
-        <div class="overlayCardStatsHeader">Ability</div>
-        <div class="overlayCardAbilitiesBtnContainer">
-            <div class="overlayCardAbilitiesBtn ${pokemon.details.types[0].type["name"]}">${pokemon.details.abilities[0].ability['name'].charAt(0).toUpperCase()}${pokemon.details.abilities[0].ability['name'].slice(1)}</div>
-        </div>
+    <div class="overlayCardAbilitiesContainer">
+        <div class="overlayCardAbilities">Ability</div>
+        <div class="overlayCardAbilitiesBtn ${pokemon.details.types[0].type["name"]}">${pokemon.details.abilities[0].ability['name'].charAt(0).toUpperCase()}${pokemon.details.abilities[0].ability['name'].slice(1)}</div>
     </div>
     `;
 }
