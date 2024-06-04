@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  background: url("/img/bg1.jpg");
+  background: url("../img/bg1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -81,6 +81,7 @@ main {
 .pokemonCardImage {
   height: auto;
   width: 120px;
+  max-height: 180px;
 }
 
 .pokemonCardTypes {
@@ -101,7 +102,7 @@ main {
 }
 
 .loadMoreCard {
-  background: url("/img/bg2.jpg");
+  background: url("../img/bg2.jpg");
   background-size: cover;
   width: 236px;
   height: 330px;
@@ -135,6 +136,50 @@ main {
   padding: 4px;
 }
 
+
+/* scrollbar */
+body {
+  --sb-track-color: #000000;
+  --sb-thumb-color: #a60000;
+  --sb-size: 8px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 1px;
+}
+
+
+/* media queries */
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
 @media (max-width: 1096px) {
   main {
     margin: 40px 20px;
@@ -157,6 +202,7 @@ main {
   .pokemonCardImage {
     height: auto;
     width: 96px;
+    max-height: 140px;
   }
 
   .pokemonCardTypes {

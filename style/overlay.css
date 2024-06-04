@@ -30,7 +30,7 @@
   font-weight: bold;
   color: rgb(0, 0, 0);
   transform: translate(-50%, -50%);
-  background: url("/img/texturedpaper.png");
+  background: url("../img/texturedpaper.png");
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
     rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
     rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
@@ -53,7 +53,7 @@
 }
 
 .overlayImgBox {
-  background-image: url("/img/bgc.png");
+  background-image: url("../img/bgc.jpg");
   background-size: cover;
   height: 270px;
   border: 6px ridge rgb(215, 217, 216);
