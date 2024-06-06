@@ -26,10 +26,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 32px;
   font-weight: bold;
   color: rgb(0, 0, 0);
-  transform: translate(-50%, -50%);
   background: url("../img/texturedpaper.png");
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
     rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
@@ -85,11 +85,11 @@
 }
 
 #leftOverlay {
-  left: 20px;
+  left: 16%;
 }
 
 #rightOverlay {
-  right: 20px;
+  right: 16%;
 }
 
 #leftOverlay,
@@ -146,6 +146,16 @@
   justify-content: center;
   align-items: center;
   border: 4px ridge rgb(255, 255, 255);
+}
+
+@media (max-width: 880px) {
+  #leftOverlay {
+    left: 6%;
+  }
+  
+  #rightOverlay {
+    right: 6%;
+  }
 }
 
 @media (max-width: 680px) {

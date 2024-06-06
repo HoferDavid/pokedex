@@ -96,7 +96,7 @@ function openOverlay(index) {
   overlay.style.display = "block";
   document.body.classList.add('modalOpen');
 
-  updateProgressBar()
+  // updateProgressBar()
 }
 
 
