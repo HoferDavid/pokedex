@@ -2,6 +2,7 @@ let limit = 25;
 let offset = 0;
 let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon`;
 let pokemons = [];
+isLoading = false;
 
 
 async function init() {
@@ -54,18 +55,26 @@ async function renderPokemons(filteredPokemons = pokemons) {
       content.innerHTML += generateRenderPokemonsHTML(pokemon, index, typesHTML);
     }
     });
-    content.innerHTML += `<div class="loadMoreCard" onclick="loadMorePokemons()"><button id="loadMoreBtn">Load More</button></div`;
-  }
+    content.innerHTML += `<div class="loadMoreCard"><button id="loadMoreBtn">Load More</button></div`;
+
+    document.getElementById('loadMoreBtn').addEventListener('click', loadMorePokemons);
+}
 
 
 async function loadMorePokemons() {
+  if (isLoading) return;
+
+  isLoading = true;
   disableLoadMoreButton();
+
   offset += limit;
   limit = 20;
   await loadPokemons();
   await loadPokemonDetails();
   renderPokemons();
+
   enableLoadMoreButton();
+  isLoading = false;
   console.log(pokemons);
 }
 
@@ -129,3 +138,4 @@ function searchNames() {
     renderPokemons();
   }
 }
+
