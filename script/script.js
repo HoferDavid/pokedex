@@ -67,6 +67,7 @@ async function loadMorePokemons() {
 
   isLoadingMore = true;
   disableLoadMoreButton();
+  generateLoadingScreenHTML();
 
   offset += limit;
   await loadPokemons();
@@ -103,6 +104,16 @@ function openOverlay(index) {
 
   overlay.style.display = "block";
   document.body.classList.add('modalOpen');
+
+  setTimeout(function() { updateProgressBar(index); }, 10);
+}
+
+
+function updateProgressBar(index) {
+  for (let i = 1; i < 6; i++) {
+    document.getElementById(`progressBar${i}`).innerHTML = `${pokemons[index].details.stats[i].base_stat}%`;
+    document.getElementById(`progressBar${i}`).style.width = `${pokemons[index].details.stats[i].base_stat / 2}%`;
+  }
 }
 
 
@@ -135,4 +146,7 @@ function searchNames() {
     renderPokemons();
   }
 }
+
+
+
 

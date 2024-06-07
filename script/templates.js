@@ -57,35 +57,35 @@ function generateOpenOverlayHTML(pokemon, index) {
         <div>
             <div class="overlayCardBarHeader">Attack</div>
             <div class="progress">
-                <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: ${pokemon.details.stats[1].base_stat / 2}%">${pokemon.details.stats[1].base_stat}</div>
+                <div id="progressBar1" class="progress-bar bg-success" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
 
         <div>
             <div class="overlayCardBarHeader">Defense</div>
             <div class="progress">
-                <div id="progressBar" class="progress-bar" role="progressbar" style="width: ${pokemon.details.stats[2].base_stat / 2}%">${pokemon.details.stats[2].base_stat}</div>
+                <div id="progressBar2" class="progress-bar" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
 
         <div>
             <div class="overlayCardBarHeader">Special Attack</div>
             <div class="progress">
-                <div id="progressBar" class="progress-bar bg-info" role="progressbar" style="width: ${pokemon.details.stats[3].base_stat / 2}%">${pokemon.details.stats[3].base_stat}</div>
+                <div id="progressBar3" class="progress-bar bg-info" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
 
         <div>
             <div class="overlayCardBarHeader">Special Defense</div>
             <div class="progress">
-                <div id="progressBar" class="progress-bar bg-danger" role="progressbar" style="width: ${pokemon.details.stats[4].base_stat / 2}%">${pokemon.details.stats[4].base_stat}</div>
+                <div id="progressBar4" class="progress-bar bg-danger" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
 
         <div>
             <div class="overlayCardBarHeader">Speed</div>
             <div class="progress">
-                <div id="progressBar" class="progress-bar bg-warning" role="progressbar" style="width: ${pokemon.details.stats[5].base_stat / 2}%">${pokemon.details.stats[5].base_stat}</div>
+                <div id="progressBar5" class="progress-bar bg-warning" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
     </div>
