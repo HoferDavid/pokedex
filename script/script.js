@@ -2,10 +2,11 @@ let limit = 25;
 let offset = 0;
 let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon`;
 let pokemons = [];
-isLoading = false;
+isLoadingMore = false;
 
 
 async function init() {
+  document.getElementById("content").innerHTML = generateLoadingScreenHTML();
   await loadPokemons();
   await loadPokemonDetails();
   console.log(pokemons);
@@ -62,20 +63,18 @@ async function renderPokemons(filteredPokemons = pokemons) {
 
 
 async function loadMorePokemons() {
-  if (isLoading) return;
+  if (isLoadingMore) return;
 
-  isLoading = true;
+  isLoadingMore = true;
   disableLoadMoreButton();
 
   offset += limit;
-  limit = 20;
   await loadPokemons();
   await loadPokemonDetails();
   renderPokemons();
 
   enableLoadMoreButton();
-  isLoading = false;
-  console.log(pokemons);
+  isLoadingMore = false;
 }
 
 
@@ -104,8 +103,6 @@ function openOverlay(index) {
 
   overlay.style.display = "block";
   document.body.classList.add('modalOpen');
-
-  // updateProgressBar()
 }
 
 

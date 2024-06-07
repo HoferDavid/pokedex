@@ -1,3 +1,13 @@
+function generateLoadingScreenHTML() {
+    return /*html*/ `
+    <div class="loadingScreen">
+        <div class="loadingImg"></div>
+        <div class="loadingText">Gotta catch 'em all!</div>
+    </div>
+    `;
+}
+
+
 function generateRenderPokemonsHTML(pokemon, index, typesHTML) {
   const pokemonName =
     pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);

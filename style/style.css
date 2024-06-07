@@ -33,6 +33,32 @@ main {
   min-height: 100vh;
 }
 
+.loadingScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.loadingImg {
+  background: url("../img/pokeballloading.png");
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingText {
+  color: white;
+  font-size: 32px;
+}
+
 .pokemonCardContainer {
   width: 236px;
   height: 330px;
