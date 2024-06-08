@@ -2,6 +2,7 @@ let limit = 25;
 let offset = 0;
 let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon`;
 let pokemons = [];
+let species = [];
 isLoadingMore = false;
 
 
@@ -14,7 +15,7 @@ async function init() {
 }
 
 
-// // Load name and url for limit Pokemon on main page
+// Load name and url for limit Pokemon on main page
 async function loadPokemons() {
   try {
     let response = await fetch(`${pokeapiUrl}?limit=${limit}&offset=${offset}`);
@@ -24,6 +25,22 @@ async function loadPokemons() {
     console.error("dh Fetch error:", error);
   }
 }
+
+
+// async function loadSpecies() {
+//   const start = offset += 1;
+//   const end = pokemons.length;
+
+//   for (let i = start; i < end; i++) {
+//     try {
+//       let response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${i}`);
+//       let responseAsJson = await response.text();
+//       species.push(...responseAsJson.results);
+//     } catch (error) {
+//       console.error("dh Fetch error:", error);
+//     }
+//   }
+// }
 
 
 // Load details for each limit Pokemon on main page

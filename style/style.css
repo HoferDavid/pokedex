@@ -84,6 +84,12 @@ main {
     rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
+.pokemonCardNameContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .pokemonCardContainer:hover {
   transform: scale(1.02);
 }

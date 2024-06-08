@@ -22,7 +22,6 @@
   padding-top: 8px;
   padding-bottom: 8px;
   color: white;
-  cursor: pointer;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -41,15 +40,30 @@
 .overlayCardHeader {
   display: flex;
   justify-content: space-between;
+  align-items: first baseline;
+}
+
+.overlayCardHeaderRightContainer {
+  display: flex;
+  align-items: first baseline;
+  justify-content: flex-end;
 }
 
 .overlayCardHeaderRight {
   display: flex;
   align-items: first baseline;
+  justify-content: flex-end;
 }
 
 .overlayCardHeaderHp {
   font-size: 12px;
+}
+
+.overlayCardTypesSymbol {
+  width: 24px;
+  border-radius: 50%;
+  padding: 2px;
+  display: flex;
 }
 
 .overlayImgBox {
@@ -58,14 +72,14 @@
   height: 270px;
   border: 6px ridge rgb(215, 217, 216);
   border-radius: 0 0 12px 12px;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   position: relative;
 }
 
-#overlay img {
+.overlayImg {
   height: auto;
   width: 200px;
 }
@@ -148,6 +162,51 @@
   border: 4px ridge rgb(255, 255, 255);
 }
 
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  opacity: 1 !important;
+}
+
+.tooltipImg {
+  width: 80px;
+}
+
+.tooltip .tooltiptext {
+  display: flex;
+  justify-content: space-between;
+  visibility: hidden;
+  width: 400px;
+  background-color: rgb(223, 223, 226);
+  text-align: center;
+  border: 4px ridge rgb(215, 217, 216);
+  padding: 4px 4px;
+  position: absolute;
+  z-index: 100;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
 @media (max-width: 880px) {
   #leftOverlay {
     left: 6%;
@@ -184,7 +243,7 @@
     border-radius: 0 0 10px 10px;
   }
 
-  #overlay img {
+  .overlayImg {
     width: 160px;
   }
 
@@ -270,7 +329,7 @@
     border-radius: 0 0 8px 8px;
   }
 
-  #overlay img {
+  .overlayImg {
     width: 128px;
   }
 
