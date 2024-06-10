@@ -1,19 +1,22 @@
-let limit = 5;
+let limit = 25;
 let offset = 0;
 let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon`;
 let pokemons = [];
 isLoadingMore = false;
 
-let species = [];
-
 
 async function init() {
   document.getElementById("content").innerHTML = generateLoadingScreenHTML();
+  loadFunctions();
+  console.log(pokemons);
+}
+
+
+async function loadFunctions() {
   await loadPokemons();
   await loadPokemonDetails();
   await loadPokemonInfo();
   await loadEvoChain();
-  console.log(pokemons);
   renderPokemons();
 }
 
@@ -32,10 +35,9 @@ async function loadPokemons() {
 
 // Load details for each limit Pokemon on main page
 async function loadPokemonDetails() {
-  const start = offset;
   const end = pokemons.length;
 
-  for (let i = start; i < end; i++) {
+  for (let i = offset; i < end; i++) {
     if (!pokemons[i].details) {
       try {
         let response = await fetch(pokemons[i].url);
@@ -51,10 +53,9 @@ async function loadPokemonDetails() {
 
 // Load species for each Pokemon
 async function loadPokemonInfo() {
-  const start = offset;
   const end = pokemons.length;
 
-  for (let i = start; i < end; i++) {
+  for (let i = offset; i < end; i++) {
     if (!pokemons[i].species) {
       try {
         let response = await fetch(pokemons[i].details.species.url);
@@ -70,10 +71,9 @@ async function loadPokemonInfo() {
 
 // Load evochain for each Pokemon
 async function loadEvoChain() {
-  const start = offset;
   const end = pokemons.length;
 
-  for (let i = start; i < end; i++) {
+  for (let i = offset; i < end; i++) {
     if (!pokemons[i].evochain) {
       try {
         let response = await fetch(pokemons[i].species.evolution_chain.url);
@@ -106,17 +106,14 @@ async function renderPokemons(filteredPokemons = pokemons) {
 
 async function loadMorePokemons() {
   if (isLoadingMore) return;
-
+  
   isLoadingMore = true;
   disableLoadMoreButton();
   generateLoadingScreenHTML();
 
   offset += limit;
-  await loadPokemons();
-  await loadPokemonDetails();
-  await loadPokemonInfo();
-  await loadEvoChain();
-  renderPokemons();
+
+  loadFunctions()
 
   enableLoadMoreButton();
   isLoadingMore = false;

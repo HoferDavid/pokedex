@@ -7,35 +7,27 @@ function generateLoadingScreenHTML() {
     `;
 }
 
+
 function generateRenderPokemonsHTML(pokemon, index, typesHTML) {
-  const pokemonName =
-    pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  const pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
   let bgColor = pokemon.details.types[0].type["name"];
 
   return /*html*/ `
     <div onclick="openOverlay(${index})" class="pokemonCardContainer ${bgColor}">
-    <div class="pokemonCardNameContainer">
-        <div class="${
-          pokemon.details.types[0].type["name"]
-        } pokemonCardName">${pokemonName}</div>
-        <img class="overlayCardTypesSymbol ${bgColor}" src="../img/${bgColor}.png">
-    </div>
-        <div class="pokemonCardId">#${pokemon.details.id
-          .toString()
-          .padStart(3, "0")}</div>
-        <div class="pokemonCardImageContainer">
-            <img class="pokemonCardImage" src='${
-              pokemon.details.sprites.other.showdown.front_default
-            }'>
+        <div class="pokemonCardNameContainer">
+            <div class="${pokemon.details.types[0].type["name"]} pokemonCardName">${pokemonName}</div>
+            <img class="overlayCardTypesSymbol ${bgColor}" src="./img/${bgColor}.png">
         </div>
-        <div class="pokemonCardTypes">${typesHTML}</div>
+            <div class="pokemonCardId">#${pokemon.details.id.toString().padStart(3, "0")}</div>
+            <div class="pokemonCardImageContainer"><img class="pokemonCardImage" src='${pokemon.details.sprites.other.showdown.front_default}'></div>
+            <div class="pokemonCardTypes">${typesHTML}</div>
     </div>
 `;
 }
 
+
 function generateOpenOverlayHTML(pokemon, index) {
-  const pokemonName =
-    pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  const pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
   const bgColor = pokemon.details.types[0].type["name"];
   const weight = (pokemon.details.weight / 10) * 2.20462;
   const roundedWeight = weight.toFixed(1);
@@ -48,12 +40,12 @@ function generateOpenOverlayHTML(pokemon, index) {
     let evoData = pokemon.evochain.chain;
     do {
       const evoDetails = evoData['evolution_details'][0];
-      evoChainHTML += `<div class="evolution-stage">
-                         <img class="evolution-img" src="${getSpriteUrl(evoData.species.url)}">
+      evoChainHTML += /*html*/ `<div>
+                         <img class="tooltipImg" src="${getSpriteUrl(evoData.species.url)}">
                          <p>${evoData.species.name.charAt(0).toUpperCase() + evoData.species.name.slice(1)}</p>
                        </div>`;
       if (evoData['evolves_to'].length > 0) {
-        evoChainHTML += `<img class="evolution-arrow" src="../img/arrow.png">`;
+        evoChainHTML += `<img class="tooltipArrow" src="./img/arrow.png">`;
       }
       evoData = evoData['evolves_to'][0];
     } while (evoData != undefined && evoData.hasOwnProperty('evolves_to'));
@@ -64,14 +56,13 @@ function generateOpenOverlayHTML(pokemon, index) {
     <div class="overlayPokemonCardContainer ${bgColor}">
         <div class="overlayCardHeader">
             <div>${pokemonName}</div>
-
             <div class="overlayCardHeaderRightContainer">
                 <div class="overlayCardHeaderRight">
                     <div class="overlayCardHeaderHp">HP</div>
                     <div class="">${pokemon.details.stats[0].base_stat}</div>
                 </div>
                 <div>
-                    <img class="overlayCardTypesSymbol ${bgColor}" src="../img/${bgColor}.png">
+                    <img class="overlayCardTypesSymbol ${bgColor}" src="./img/${bgColor}.png">
                 </div>
             </div>
         </div>
@@ -79,11 +70,10 @@ function generateOpenOverlayHTML(pokemon, index) {
             <img class="overlayImg" src="${pokemon.details.sprites.other["official-artwork"].front_default}">
             <div id="imgStats">NO. ${pokemon.details.id.toString().padStart(3, "0")} ${pokemon.species.genera[7].genus} HT: ${feet}'${inches < 10 ? "0" : ""}${inches}" WT: ${roundedWeight} lbs.</div>
             
-            <div class="tooltiptext">
+            <div class="tooltipContent">
                 ${evoChainHTML}
             </div>
         </div>
-
         <div>
             <div class="overlayCardStatsHeader">Base Stats</div>
         <div>
@@ -92,46 +82,34 @@ function generateOpenOverlayHTML(pokemon, index) {
                 <div id="progressBar1" class="progress-bar bg-success" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
-
         <div>
             <div class="overlayCardBarHeader">Defense</div>
             <div class="progress">
                 <div id="progressBar2" class="progress-bar" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
-
         <div>
             <div class="overlayCardBarHeader">Special Attack</div>
             <div class="progress">
                 <div id="progressBar3" class="progress-bar bg-info" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
-
         <div>
             <div class="overlayCardBarHeader">Special Defense</div>
             <div class="progress">
                 <div id="progressBar4" class="progress-bar bg-danger" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
-
         <div>
             <div class="overlayCardBarHeader">Speed</div>
             <div class="progress">
                 <div id="progressBar5" class="progress-bar bg-warning" role="progressbar" style="width: 0%">0</div>
             </div>
         </div>
-
     </div>
-
     <div class="overlayCardAbilitiesContainer">
         <div class="overlayCardAbilities">Ability</div>
-        <div class="overlayCardAbilitiesBtn ${
-          pokemon.details.types[0].type["name"]
-        }">${pokemon.details.abilities[0].ability["name"]
-    .charAt(0)
-    .toUpperCase()}${pokemon.details.abilities[0].ability["name"].slice(
-    1
-  )}</div>
+        <div class="overlayCardAbilitiesBtn ${pokemon.details.types[0].type["name"]}">${pokemon.details.abilities[0].ability["name"].charAt(0).toUpperCase()}${pokemon.details.abilities[0].ability["name"].slice(1)}</div>
     </div>
     `;
 }

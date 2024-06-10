@@ -31,6 +31,7 @@ main {
   justify-content: center;
   gap: 24px;
   min-height: 100vh;
+  max-width: 1440px;
 }
 
 .loadingScreen {
@@ -50,8 +51,12 @@ main {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loadingText {
@@ -167,7 +172,6 @@ main {
   padding: 4px;
 }
 
-
 /* scrollbar */
 body {
   --sb-track-color: #000000;
@@ -176,7 +180,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: var(--sb-size)
+  width: var(--sb-size);
 }
 
 body::-webkit-scrollbar-track {
@@ -188,35 +192,25 @@ body::-webkit-scrollbar-thumb {
   border-radius: 1px;
 }
 
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
 
 /* media queries */
-@supports not selector(::-webkit-scrollbar) {
-  body {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
-  }
-}
-
-@supports not selector(::-webkit-scrollbar) {
-  body {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
-  }
-}
-
-@supports not selector(::-webkit-scrollbar) {
-  body {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
-  }
-}
-
-@media (max-width: 1096px) {
-  main {
-    margin: 40px 20px;
-  }
-}
-
 @media (max-width: 560px) {
   .pokemonCardContainer {
     width: 189px;
