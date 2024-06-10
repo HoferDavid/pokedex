@@ -1,8 +1,10 @@
-let limit = 25;
+let limit = 5;
 let offset = 0;
 let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon`;
 let pokemons = [];
 isLoadingMore = false;
+
+let species = [];
 
 
 async function init() {
@@ -47,24 +49,26 @@ async function loadPokemonDetails() {
 }
 
 
+// Load species for each Pokemon
 async function loadPokemonInfo() {
   const start = offset;
   const end = pokemons.length;
 
   for (let i = start; i < end; i++) {
-    if (!pokemons[i].info) {
+    if (!pokemons[i].species) {
       try {
         let response = await fetch(pokemons[i].details.species.url);
-        let info = await response.json();
-        pokemons[i].info = info;
+        let species = await response.json();
+        pokemons[i].species = species;
       } catch (error) {
-        console.error("dh Fetch info error:", error);
+        console.error("dh Fetch species error:", error);
       }
     }
   }
 }
 
 
+// Load evochain for each Pokemon
 async function loadEvoChain() {
   const start = offset;
   const end = pokemons.length;
@@ -72,7 +76,7 @@ async function loadEvoChain() {
   for (let i = start; i < end; i++) {
     if (!pokemons[i].evochain) {
       try {
-        let response = await fetch(pokemons[i].info.evolution_chain.url);
+        let response = await fetch(pokemons[i].species.evolution_chain.url);
         let evochain = await response.json();
         pokemons[i].evochain = evochain;
       } catch (error) {
@@ -110,6 +114,8 @@ async function loadMorePokemons() {
   offset += limit;
   await loadPokemons();
   await loadPokemonDetails();
+  await loadPokemonInfo();
+  await loadEvoChain();
   renderPokemons();
 
   enableLoadMoreButton();
@@ -185,6 +191,12 @@ function searchNames() {
   }
 }
 
+
+// Helper function to get the sprite URL from the species URL
+function getSpriteUrl(speciesUrl) {
+  const speciesId = speciesUrl.split('/').filter(Boolean).pop();
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${speciesId}.png`;
+}
 
 
 

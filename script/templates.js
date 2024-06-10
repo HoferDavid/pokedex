@@ -43,6 +43,21 @@ function generateOpenOverlayHTML(pokemon, index) {
   const feet = Math.floor(heightInFeet);
   const inches = Math.round((heightInFeet - feet) * 12);
 
+    // Generate evolution chain HTML
+    let evoChainHTML = '';
+    let evoData = pokemon.evochain.chain;
+    do {
+      const evoDetails = evoData['evolution_details'][0];
+      evoChainHTML += `<div class="evolution-stage">
+                         <img class="evolution-img" src="${getSpriteUrl(evoData.species.url)}">
+                         <p>${evoData.species.name.charAt(0).toUpperCase() + evoData.species.name.slice(1)}</p>
+                       </div>`;
+      if (evoData['evolves_to'].length > 0) {
+        evoChainHTML += `<img class="evolution-arrow" src="../img/arrow.png">`;
+      }
+      evoData = evoData['evolves_to'][0];
+    } while (evoData != undefined && evoData.hasOwnProperty('evolves_to'));
+
   return /*html*/ `
     <p id="leftOverlay" onclick="left(${index})"><img src="img/arrowLeftWhite.png"></p>
     <p id="rightOverlay" onclick="right(${index})"><img src="img/arrowRightWhite.png"></p>
@@ -62,13 +77,10 @@ function generateOpenOverlayHTML(pokemon, index) {
         </div>
         <div class="overlayImgBox tooltip">
             <img class="overlayImg" src="${pokemon.details.sprites.other["official-artwork"].front_default}">
-            <div id="imgStats">NO. ${pokemon.details.id.toString().padStart(3, "0")} ${pokemon.info.genera[7].genus} HT: ${feet}'${inches < 10 ? "0" : ""}${inches}" WT: ${roundedWeight} lbs.</div>
+            <div id="imgStats">NO. ${pokemon.details.id.toString().padStart(3, "0")} ${pokemon.species.genera[7].genus} HT: ${feet}'${inches < 10 ? "0" : ""}${inches}" WT: ${roundedWeight} lbs.</div>
+            
             <div class="tooltiptext">
-                <img class="tooltipImg" src="${pokemon.details.sprites.other["official-artwork"].front_default}">
-                <img class="tooltipArrow" src="../img/arrow.png">
-                <img class="tooltipImg" src="${pokemon.details.sprites.other["official-artwork"].front_default}">
-                <img class="tooltipArrow" src="../img/arrow.png">
-                <img class="tooltipImg" src="${pokemon.details.sprites.other["official-artwork"].front_default}">
+                ${evoChainHTML}
             </div>
         </div>
 

@@ -213,6 +213,22 @@
   opacity: 1;
 }
 
+.evolution-stage {
+  display: inline-block;
+  text-align: center;
+}
+
+.evolution-img {
+  width: 50px;
+  height: 50px;
+}
+
+.evolution-arrow {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
 @media (max-width: 880px) {
   #leftOverlay {
     left: 6%;
