@@ -35,9 +35,7 @@ async function loadPokemons() {
 
 // Load details for each limit Pokemon on main page
 async function loadPokemonDetails() {
-  const end = pokemons.length;
-
-  for (let i = offset; i < end; i++) {
+  for (let i = offset; i < pokemons.length; i++) {
     if (!pokemons[i].details) {
       try {
         let response = await fetch(pokemons[i].url);
@@ -53,9 +51,7 @@ async function loadPokemonDetails() {
 
 // Load species for each Pokemon
 async function loadPokemonInfo() {
-  const end = pokemons.length;
-
-  for (let i = offset; i < end; i++) {
+  for (let i = offset; i < pokemons.length; i++) {
     if (!pokemons[i].species) {
       try {
         let response = await fetch(pokemons[i].details.species.url);
@@ -71,9 +67,7 @@ async function loadPokemonInfo() {
 
 // Load evochain for each Pokemon
 async function loadEvoChain() {
-  const end = pokemons.length;
-
-  for (let i = offset; i < end; i++) {
+  for (let i = offset; i < pokemons.length; i++) {
     if (!pokemons[i].evochain) {
       try {
         let response = await fetch(pokemons[i].species.evolution_chain.url);

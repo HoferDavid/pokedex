@@ -245,16 +245,11 @@ body::-webkit-scrollbar-thumb {
   }
 
   .loadMoreCard {
-    background: url("/img/bg2.jpg");
-    background-size: cover;
     width: 189px;
     height: 264px;
     border-style: solid;
     border-radius: 14px;
     border-width: 8px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
   }
   #loadMoreBtn {
     font-size: 24px;
