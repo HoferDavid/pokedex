@@ -2,7 +2,6 @@ let limit = 25;
 let offset = 0;
 let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon`;
 let pokemons = [];
-let species = [];
 isLoadingMore = false;
 
 
@@ -10,6 +9,8 @@ async function init() {
   document.getElementById("content").innerHTML = generateLoadingScreenHTML();
   await loadPokemons();
   await loadPokemonDetails();
+  await loadPokemonInfo();
+  await loadEvoChain();
   console.log(pokemons);
   renderPokemons();
 }
@@ -27,22 +28,6 @@ async function loadPokemons() {
 }
 
 
-// async function loadSpecies() {
-//   const start = offset += 1;
-//   const end = pokemons.length;
-
-//   for (let i = start; i < end; i++) {
-//     try {
-//       let response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${i}`);
-//       let responseAsJson = await response.text();
-//       species.push(...responseAsJson.results);
-//     } catch (error) {
-//       console.error("dh Fetch error:", error);
-//     }
-//   }
-// }
-
-
 // Load details for each limit Pokemon on main page
 async function loadPokemonDetails() {
   const start = offset;
@@ -56,6 +41,42 @@ async function loadPokemonDetails() {
         pokemons[i].details = details;
       } catch (error) {
         console.error("dh Fetch details error:", error);
+      }
+    }
+  }
+}
+
+
+async function loadPokemonInfo() {
+  const start = offset;
+  const end = pokemons.length;
+
+  for (let i = start; i < end; i++) {
+    if (!pokemons[i].info) {
+      try {
+        let response = await fetch(pokemons[i].details.species.url);
+        let info = await response.json();
+        pokemons[i].info = info;
+      } catch (error) {
+        console.error("dh Fetch info error:", error);
+      }
+    }
+  }
+}
+
+
+async function loadEvoChain() {
+  const start = offset;
+  const end = pokemons.length;
+
+  for (let i = start; i < end; i++) {
+    if (!pokemons[i].evochain) {
+      try {
+        let response = await fetch(pokemons[i].info.evolution_chain.url);
+        let evochain = await response.json();
+        pokemons[i].evochain = evochain;
+      } catch (error) {
+        console.error("dh Fetch evochain error:", error);
       }
     }
   }

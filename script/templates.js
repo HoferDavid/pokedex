@@ -62,7 +62,7 @@ function generateOpenOverlayHTML(pokemon, index) {
         </div>
         <div class="overlayImgBox tooltip">
             <img class="overlayImg" src="${pokemon.details.sprites.other["official-artwork"].front_default}">
-            <div id="imgStats">NO. ${pokemon.details.id.toString().padStart(3, "0")} Pokemon HT: ${feet}'${inches < 10 ? "0" : ""}${inches}" WT: ${roundedWeight} lbs.</div>
+            <div id="imgStats">NO. ${pokemon.details.id.toString().padStart(3, "0")} ${pokemon.info.genera[7].genus} HT: ${feet}'${inches < 10 ? "0" : ""}${inches}" WT: ${roundedWeight} lbs.</div>
             <div class="tooltiptext">
                 <img class="tooltipImg" src="${pokemon.details.sprites.other["official-artwork"].front_default}">
                 <img class="tooltipArrow" src="../img/arrow.png">
