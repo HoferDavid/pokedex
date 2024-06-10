@@ -7,16 +7,11 @@ isLoadingMore = false;
 
 async function init() {
   document.getElementById("content").innerHTML = generateLoadingScreenHTML();
-  loadFunctions();
-  console.log(pokemons);
-}
-
-
-async function loadFunctions() {
   await loadPokemons();
   await loadPokemonDetails();
   await loadPokemonInfo();
   await loadEvoChain();
+  console.log(pokemons);
   renderPokemons();
 }
 
@@ -100,17 +95,22 @@ async function renderPokemons(filteredPokemons = pokemons) {
 
 async function loadMorePokemons() {
   if (isLoadingMore) return;
-  
   isLoadingMore = true;
   disableLoadMoreButton();
   generateLoadingScreenHTML();
-
   offset += limit;
-
-  loadFunctions()
-
+  await loadPokemons();
+  await loadPokemonDetails();
+  await loadPokemonInfo();
+  await loadEvoChain();
+  renderPokemons();
   enableLoadMoreButton();
   isLoadingMore = false;
+}
+
+
+async function loadFunctions() {
+  
 }
 
 
