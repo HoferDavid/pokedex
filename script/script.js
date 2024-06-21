@@ -83,7 +83,6 @@ async function renderPokemons(filteredPokemons = pokemons) {
   filteredPokemons.forEach((pokemon, index) => {
     if (pokemon.details) {
       let typesHTML = pokemon.details.types.map(typeInfo => `<div class="pokemonCardTypesSingle">${typeInfo.type.name}</div>`).join('');
-  
       content.innerHTML += generateRenderPokemonsHTML(pokemon, index, typesHTML);
     }
     });
@@ -106,11 +105,6 @@ async function loadMorePokemons() {
   renderPokemons();
   enableLoadMoreButton();
   isLoadingMore = false;
-}
-
-
-async function loadFunctions() {
-  
 }
 
 

@@ -39,7 +39,6 @@ function generateOpenOverlayHTML(pokemon, index) {
     let evoChainHTML = '';
     let evoData = pokemon.evochain.chain;
     do {
-      const evoDetails = evoData['evolution_details'][0];
       evoChainHTML += /*html*/ `<div>
                          <img class="tooltipImg" src="${getSpriteUrl(evoData.species.url)}">
                          <p>${evoData.species.name.charAt(0).toUpperCase() + evoData.species.name.slice(1)}</p>

@@ -178,7 +178,6 @@
 .tooltipArrow {
   width: 20px;
   height: 20px;
-  margin: 0 5px;
 }
 
 .tooltip .tooltipContent {
@@ -387,5 +386,17 @@
   .tooltip .tooltipContent {
     width: 270px;
     top: 30%;
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+
+  .tooltipImg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .tooltipArrow {
+    width: 10px;
+    height: 10px;
   }
 }
