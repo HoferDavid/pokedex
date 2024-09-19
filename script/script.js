@@ -167,7 +167,7 @@ window.onclick = function(event) {
 
 function searchNames() {
   const input = document.getElementById("inputField").value.toLowerCase();
-  
+
   if (input.length > 2) {
     const filteredPokemons = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(input));
     renderPokemons(filteredPokemons);
@@ -182,6 +182,3 @@ function getSpriteUrl(speciesUrl) {
   const speciesId = speciesUrl.split('/').filter(Boolean).pop();
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${speciesId}.png`;
 }
-
-
-

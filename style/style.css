@@ -225,8 +225,9 @@ body::-webkit-scrollbar-thumb {
   }
 
   .pokemonCardImage {
-    height: auto;
-    width: 96px;
+    height: 80px;
+    /* width: 64px; */
+    width: auto;
     max-height: 140px;
   }
 
